@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Music Trends Indonesia</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f8fbff;
+  color: #1b2a41;
+}
+
+/* Navbar */
+
+.navbar {
+  width: 100%;
+  padding: 22px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(248, 251, 255, 0.85);
+  backdrop-filter: blur(12px);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo span {
+  font-size: 26px;
+}
+
+.logo h2 {
+  color: #2b6fff;
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #334;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #2b6fff;
+}
+
+/* Hero */
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 7%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 800px;
+  z-index: 2;
+}
+
+.tag {
+  color: #2b6fff;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 65px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  color: #1a2740;
+}
+
+.desc {
+  font-size: 18px;
+  color: #5f6f81;
+  margin-bottom: 35px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 14px 30px;
+  border-radius: 15px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.primary-btn {
+  background: #2b6fff;
+  color: white;
+  box-shadow: 0 10px 25px rgba(43, 111, 255, 0.3);
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+}
+
+.secondary-btn {
+  background: white;
+  color: #2b6fff;
+  border: 1px solid #dbe6ff;
+}
+
+.secondary-btn:hover {
+  background: #edf3ff;
+}
+
+.hero-glow {
+  width: 500px;
+  height: 500px;
+  background: #2b6fff;
+  opacity: 0.15;
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+}
+
+/* Sections */
+
+.section {
+  padding: 80px 7%;
+}
+
+.section-title {
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.section-title p {
+  color: #6f7f95;
+}
+
+/* Music Cards rekomendasi */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.music-card {
+  background: snow;
+  border-radius: 24px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transition: 0.4s;
+}
+
+.music-card:hover {
+  transform: translateY(-8px);
+}
+
+
+.music-card h3 {
+  margin-bottom: 6px;
+}
+
+.music-card p {
+  color: #72809a;
+}
+
+.music-card audio {
+margin: 8px 0;
+}
+.music-card img:hover {transform: translateX(8px);
+
+}
+.music-card img {transition: 0.4s;}
+/* Artist */
+
+.artist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+}
+
+.artist-card {
+  background: white;
+  padding: 25px;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.artist-card:hover {
+  transform: translateY(-8px);
+}
+
+.artist-img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  margin: auto;
+  margin-bottom: 18px;
+  background: linear-gradient(135deg, #2b6fff, #8ab4ff);
+}
+
+/* Recommendation */
+
+.recommendation-box {
+  background: white;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.recommendation-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid #eef3ff;
+}
+
+.recommendation-item:last-child {
+  border-bottom: none;
+}
+
+.recommendation-item span {
+  width: 50px;
+  height: 50px;
+  background: #2b6fff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  font-weight: 600;
+}
+
+/* Genre */
+
+.genre-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+}
+
+.genre-card {
+  background: linear-gradient(135deg, #2b6fff, #82adff);
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: 22px;
+  font-weight: 600;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.genre-card:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+
+footer {
+  padding: 40px;
+  text-align: center;
+  color: #7b8ca8;
+}
+
+/* Responsive */
+
+@media(max-width: 768px) {
+
+  .hero h1 {
+    font-size: 45px;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .section-title h2 {
+    font-size: 28px;
+  }
+}
+
+audio {
+  width: 100%;
+  height: 35px;
+  border-radius: 10px;
+  outline: none;
+}
+
+
+</style>
+
+
+<body>
+
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <h2>Tamika Music</h2>
+    </div>
+
+    <nav>
+      <a href="#rekomendasi">Recommendation</a>
+      <a href="#artis">Artist</a>
+      <a href="#genre">Genres</a>
+      <a href="#minggu">Weekly Picks</a>
+    </nav>
+  </header>
+
+  <!-- Judul Atas -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="tag">#Cari Lagu Ga Pake Ribet</p>
+      <h1>
+        Temukan Lagu Hits <br>
+        Minggu Ini
+      </h1>
+
+      <p class="desc">
+        Cari music yang lagi hits dan kamu suka disini
+      </p>
+
+      <div class="hero-buttons">
+        <button class="primary-btn">Explore Music</button>
+        <button class="secondary-btn">Top Artists</button>
+      </div>
+    </div>
+
+    <div class="hero-glow"></div>
+  </section>
+
+  <!-- Rekomendasi -->
+  <section class="section" id="rekomendasi">
+    <div class="section-title">
+      <h2>Top 10 Rekomendasi lagu buat kamu </h2>
+      <p>Rekomendasi lagu yang mungkin kamu suka</p>
+    </div><div class="card-grid">
+    </div>
+  </section>
+
+  <!-- Rising Artists -->
+  <section class="section" id="artis">
+    <div class="section-title">
+      <h2>⭐ Musisi Yang Lagi Naik Daun</h2>
+      <p>Realtime artist trends dari Last.fm</p>
+    </div>
+
+    <div class="artist-grid">
+
+      <div class="artist-card">
+        <div class="artist-img"></div>
+        <h3>Nama Musisi</h3>
+      </div>
+
+      <div class="artist-card">
+        <div class="artist-img"></div>
+        <h3>Nama Musisi</h3>
+      </div>
+
+      <div class="artist-card">
+        <div class="artist-img"></div>
+        <h3>Nama Musisi</h3>
+      </div>
+
+      <div class="artist-card">
+        <div class="artist-img"></div>
+        <h3>Nama Musisi</h3>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Weekly Recommendations -->
+  <section class="section" id="minggu">
+    <div class="section-title">
+      <h2>🎧 Rekomendasi Minggu Ini</h2>
+      <p>Lagu pilihan berdasarkan trending dan popularitas</p>
+    </div>
+
+    <div class="recommendation-box">
+      <div class="recommendation-item">
+        <span>#1</span>
+        <div>
+          <h4>Judul Lagu</h4>
+          <p>Nama Artis</p>
+        </div>
+      </div>
+
+      <div class="recommendation-item">
+        <span>#2</span>
+        <div>
+          <h4>Judul Lagu</h4>
+          <p>Nama Artis</p>
+        </div>
+      </div>
+
+      <div class="recommendation-item">
+        <span>#3</span>
+        <div>
+          <h4>Judul Lagu</h4>
+          <p>Nama Artis</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Genre -->
+  <section class="section genre-section" id="genre">
+    <div class="section-title">
+      <h2>🎼 Explore By Genre</h2>
+      <p>Temukan rekomendasi lagu berdasarkan genre favorit</p>
+    </div>
+
+    <div class="genre-grid">
+      <div class="genre-card">Pop</div>
+      <div class="genre-card">Rock</div>
+      <div class="genre-card">Hip Hop</div>
+      <div class="genre-card">Jazz</div>
+      <div class="genre-card">EDM</div>
+      <div class="genre-card">Indie</div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Made for learning Last.fm API • 2026</p>
+  </footer>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="p.js"></script>
+
+</body>
+</html>
